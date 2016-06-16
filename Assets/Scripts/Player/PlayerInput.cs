@@ -9,11 +9,11 @@ public class PlayerInput : MonoBehaviour {
 		playerMovement = gameObject.GetComponent<PlayerMovement>();
 	}
 
-	void Update () {
-		MovementInput();
+	void FixedUpdate () {
+		GetMovementInput();
 	}
 
-	void MovementInput () {
+	void GetMovementInput () {
 		float horizontal = Input.GetAxisRaw("Horizontal");
 		float vertical = Input.GetAxisRaw("Vertical");
 		playerMovement.RecieveMovementInput(horizontal, vertical);
