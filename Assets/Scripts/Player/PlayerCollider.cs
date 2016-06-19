@@ -13,7 +13,7 @@ public class PlayerCollider : MonoBehaviour {
 		if (collider.tag == "Screen") {
 			cameraController.MoveTo(new Vector3(
 				collider.transform.position.x,
-				collider.transform.position.y,
+				collider.transform.position.y +0.5f,
 				-10f
 			));
 		}
