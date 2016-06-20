@@ -1,19 +1,22 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerInput : MonoBehaviour {
-
+public class PlayerInput : MonoBehaviour
+{
 	private PlayerMovement playerMovement;
 
-	void Start () {
+	void Start ()
+	{
 		playerMovement = gameObject.GetComponent<PlayerMovement>();
 	}
 
-	void FixedUpdate () {
+	void FixedUpdate ()
+	{
 		GetMovementInput();
 	}
 
-	void GetMovementInput () {
+	void GetMovementInput ()
+	{
 		float horizontal = Input.GetAxisRaw("Horizontal");
 		float vertical = Input.GetAxisRaw("Vertical");
 		playerMovement.RecieveMovementInput(horizontal, vertical);
