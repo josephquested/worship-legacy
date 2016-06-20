@@ -13,7 +13,7 @@ public class PlayerCollider : MonoBehaviour
 	void OnTriggerStay2D (Collider2D collider)
 	{
 		if (collider.tag == "Screen") {
-			cameraController.SetScreen(collider.gameObject);
+			cameraController.SetScreen(collider.transform);
 		}
 	}
 }

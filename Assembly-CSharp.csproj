@@ -46,11 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Actor\PlayerAnimator.cs" />
+     <Compile Include="Assets\Scripts\Actor\PlayerCollider.cs" />
+     <Compile Include="Assets\Scripts\Actor\PlayerInput.cs" />
+     <Compile Include="Assets\Scripts\Actor\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Game\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerAnimator.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerCollider.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
