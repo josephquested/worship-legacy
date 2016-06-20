@@ -16,13 +16,13 @@ public class ActorMovement : MonoBehaviour
 
 	public void RecieveMovementInput (float horizontal, float vertical)
 	{
-		SetDirection(horizontal, vertical);
-		ProcessMovement(horizontal, vertical);
+		int newDirection = GetDirectionInt(horizontal, vertical);
+		ProcessMovement(newDirection);
 	}
 
-	void ProcessMovement (float horizontal, float vertical)
+	public void ProcessMovement (int newDirection)
 	{
-		if (horizontal == 0 && vertical == 0)
+		if (newDirection == 5)
 		{
 			moving = false;
 			StopMove();
@@ -30,14 +30,14 @@ public class ActorMovement : MonoBehaviour
 		else
 		{
 			moving = true;
-			SetDirection(horizontal, vertical);
-			Move();
+			direction = newDirection;
+			Move(direction);
 		}
 	}
 
-	void Move ()
+	void Move (int direction)
 	{
-		Vector2 movement = GetMovementVector();
+		Vector2 movement = GetMovementVector(direction);
 		rb.velocity = movement * speed;
 	}
 
@@ -46,21 +46,22 @@ public class ActorMovement : MonoBehaviour
 		rb.velocity = Vector2.zero;
 	}
 
-	void SetDirection (float horizontal, float vertical)
+	int GetDirectionInt (float horizontal, float vertical)
 	{
-		if (vertical == 1) direction = 0;
-		if (horizontal == 1) direction = 1;
-		if (vertical == -1) direction = 2;
-		if (horizontal == -1) direction = 3;
+		if (vertical == 1) return 0;
+		if (horizontal == 1) return 1;
+		if (vertical == -1) return 2;
+		if (horizontal == -1) return 3;
+		else return 5;
 	}
 
-	Vector2 GetMovementVector ()
+	Vector2 GetMovementVector (int newDirection)
 	{
 		Vector2 movementVector = new Vector2(0, 0);
-		if (direction == 0) movementVector = new Vector2(0, 1);
-		if (direction == 1) movementVector = new Vector2(1, 0);
-		if (direction == 2) movementVector = new Vector2(0, -1);
-		if (direction == 3) movementVector = new Vector2(-1, 0);
+		if (newDirection == 0) movementVector = new Vector2(0, 1);
+		if (newDirection == 1) movementVector = new Vector2(1, 0);
+		if (newDirection == 2) movementVector = new Vector2(0, -1);
+		if (newDirection == 3) movementVector = new Vector2(-1, 0);
 		return movementVector;
 	}
 
