@@ -8,7 +8,8 @@ public class CameraController : MonoBehaviour
 
 	public float speed = 1.0F;
 
-	public void Start () {
+	public void Start ()
+	{
 		screen = transform;
 		lerpTime = Time.time;
 	}
@@ -20,7 +21,7 @@ public class CameraController : MonoBehaviour
 		lerpTime = Time.time;
 	}
 
-	void Update()
+	void Update ()
 	{
 		Vector3 target = new Vector3(screen.position.x, screen.position.y, -10f);
     float distanceLerped = (Time.time - lerpTime) * speed;

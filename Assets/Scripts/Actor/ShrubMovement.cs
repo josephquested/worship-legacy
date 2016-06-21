@@ -3,9 +3,10 @@ using System.Collections;
 
 public class ShrubMovement : ActorMovement
 {
-	public bool movementCoroutine;
-	public float minMovement;
-	public float maxMovement;
+	private bool movementCoroutine;
+
+	[SerializeField] private float minMovement;
+	[SerializeField] private float maxMovement;
 
 	void Update ()
 	{

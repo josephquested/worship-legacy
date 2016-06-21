@@ -4,10 +4,11 @@ using System.Collections;
 public class ActorMovement : MonoBehaviour
 {
 	private Rigidbody2D rb;
+	private bool moving;
 
-	public int direction;
-	public float speed;
-	public bool moving;
+	[SerializeField] private bool canMove;
+	[SerializeField] private float speed;
+	[SerializeField] private int direction;
 
 	void Start ()
 	{
@@ -22,7 +23,7 @@ public class ActorMovement : MonoBehaviour
 
 	public void ProcessMovement (int newDirection)
 	{
-		if (newDirection == 5)
+		if (newDirection == 5 || !canMove)
 		{
 			moving = false;
 			StopMove();
@@ -73,5 +74,11 @@ public class ActorMovement : MonoBehaviour
 	public bool Moving
 	{
 		get { return moving; }
+	}
+
+	public bool CanMove
+	{
+		get { return canMove; }
+		set { canMove = value; }
 	}
 }
