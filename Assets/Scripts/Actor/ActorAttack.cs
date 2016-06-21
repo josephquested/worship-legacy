@@ -38,7 +38,7 @@ public class ActorAttack : MonoBehaviour
 
 	void Attack ()
 	{
-		print("attacking");
+
 	}
 
 	public bool Attacking
