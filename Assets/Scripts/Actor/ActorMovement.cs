@@ -69,6 +69,7 @@ public class ActorMovement : MonoBehaviour
 	public int Direction
 	{
 		get { return direction; }
+		set { direction = value; }
 	}
 
 	public bool Moving

@@ -11,6 +11,18 @@ public class ScreenController : MonoBehaviour
 		cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
 	}
 
+	public void SetScreenState (Screen screen)
+	{
+		if (screen == activeScreen && !cameraController.Transitioning)
+		{
+			screen.ActivateScreen();
+		}
+		else if (screen != activeScreen && !cameraController.Transitioning)
+		{
+			screen.ResetScreen();
+		}
+	}
+
 	public Screen ActiveScreen
 	{
 		get { return activeScreen; }
