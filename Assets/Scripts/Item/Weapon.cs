@@ -20,8 +20,7 @@ public class Weapon : MonoBehaviour
 	{
 		if (collider.tag == "Enemy")
 		{
-			print(collider.gameObject.name);
-			// collider send message
+			collider.GetComponent<Enemy>().Die();
 		}
 	}
 
