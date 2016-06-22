@@ -32,6 +32,7 @@ public class ActorAttack : MonoBehaviour
 	{
 		float duration = attackSpeed;
 		attacking = true;
+		actorMovement.CanMove = false;
 
 		while (duration >= 0)
 		{
@@ -41,6 +42,7 @@ public class ActorAttack : MonoBehaviour
 		}
 
 		attacking = false;
+		actorMovement.CanMove = true;
 		weapon.StopAttack();
 	}
 
