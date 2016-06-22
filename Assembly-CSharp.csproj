@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Actor\ActorMovement.cs" />
      <Compile Include="Assets\Scripts\Actor\Enemy\Enemy.cs" />
      <Compile Include="Assets\Scripts\Actor\Enemy\ShrubMovement.cs" />
+     <Compile Include="Assets\Scripts\Actor\Player\HUDMeat.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerAnimator.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerCollider.cs" />
