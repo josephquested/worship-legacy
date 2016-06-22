@@ -8,7 +8,6 @@ public class Weapon : MonoBehaviour
 	private SpriteRenderer spriteRenderer;
 
 	[SerializeField] private Sprite[] sprites;
-	[SerializeField] private int direction;
 	[SerializeField] private int damage;
 
 	void Start ()
@@ -28,6 +27,7 @@ public class Weapon : MonoBehaviour
 
 	public void AttackInDirection (int direction)
 	{
+		SetDirection(direction);
 		attackCollider.enabled = true;
 		spriteRenderer.enabled = true;
 	}
@@ -38,9 +38,12 @@ public class Weapon : MonoBehaviour
 		spriteRenderer.enabled = false;
 	}
 
-	public int Direction
+	void SetDirection (int direction)
 	{
-		get { return direction; }
-		set { direction = value; }
+		spriteRenderer.sprite = sprites[direction];
+		if (direction == 0) transform.localPosition = new Vector2(0, 1);
+		if (direction == 1) transform.localPosition = new Vector2(1, 0);
+		if (direction == 2) transform.localPosition = new Vector2(0, -1);
+		if (direction == 3) transform.localPosition = new Vector2(-1, 0);
 	}
 }
