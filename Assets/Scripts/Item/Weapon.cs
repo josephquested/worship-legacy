@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-	private Collider2D collider2D;
+	private Collider2D attackCollider;
 
 	[SerializeField] private Sprite[] sprites;
 	[SerializeField] private int direction;
@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
 
 	void Start ()
 	{
-		collider2D = this.GetComponent<Collider2D>();
+		attackCollider = this.GetComponent<Collider2D>();
 	}
 
 	void OnTriggerEnter2D (Collider2D collider)
@@ -26,12 +26,14 @@ public class Weapon : MonoBehaviour
 
 	public void AttackInDirection (int direction)
 	{
-		collider2D.enabled = true;
+		attackCollider.enabled = true;
+		GetComponent<Renderer>().enabled = true;
 	}
 
 	public void StopAttack ()
 	{
-		collider2D.enabled = false;
+		attackCollider.enabled = false;
+		GetComponent<Renderer>().enabled = false;
 	}
 
 	public int Direction

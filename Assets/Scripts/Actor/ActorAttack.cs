@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class ActorAttack : MonoBehaviour
 {
+	private ActorMovement actorMovement;
+
 	[SerializeField] private bool attacking;
 	[SerializeField] private float attackSpeed;
+	[SerializeField] private Weapon weapon;
+
+	void Start ()
+	{
+		actorMovement = this.GetComponent<ActorMovement>();
+	}
 
 	public void RecieveAttackInput (bool attackInput)
 	{
@@ -14,12 +22,11 @@ public class ActorAttack : MonoBehaviour
 
 	void ProcessAttack (bool attackInput)
 	{
-		if (!attacking && attackInput)
+		if (!attacking && attackInput && weapon != null)
 		{
 			StartCoroutine(AttackCoroutine());
 		}
 	}
-
 
 	IEnumerator AttackCoroutine ()
 	{
@@ -34,11 +41,12 @@ public class ActorAttack : MonoBehaviour
 		}
 
 		attacking = false;
+		weapon.StopAttack();
 	}
 
 	void Attack ()
 	{
-
+		weapon.AttackInDirection(actorMovement.Direction);
 	}
 
 	public bool Attacking
