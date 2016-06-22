@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Actor\Player\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerCollider.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerInput.cs" />
+     <Compile Include="Assets\Scripts\Actor\Player\PlayerInventory.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Game\CameraController.cs" />
      <Compile Include="Assets\Scripts\Game\Screen.cs" />
