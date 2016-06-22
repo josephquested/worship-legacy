@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 	private Collider2D attackCollider;
+	private SpriteRenderer spriteRenderer;
 
 	[SerializeField] private Sprite[] sprites;
 	[SerializeField] private int direction;
@@ -13,6 +14,7 @@ public class Weapon : MonoBehaviour
 	void Start ()
 	{
 		attackCollider = this.GetComponent<Collider2D>();
+		spriteRenderer = this.GetComponent<SpriteRenderer>();
 	}
 
 	void OnTriggerEnter2D (Collider2D collider)
@@ -27,13 +29,13 @@ public class Weapon : MonoBehaviour
 	public void AttackInDirection (int direction)
 	{
 		attackCollider.enabled = true;
-		GetComponent<Renderer>().enabled = true;
+		spriteRenderer.enabled = true;
 	}
 
 	public void StopAttack ()
 	{
 		attackCollider.enabled = false;
-		GetComponent<Renderer>().enabled = false;
+		spriteRenderer.enabled = false;
 	}
 
 	public int Direction
