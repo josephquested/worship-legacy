@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class HUDMeatController : MonoBehaviour
 {
+	private PlayerStatus playerStatus;
+
 	[SerializeField] private HUDMeat[] hudMeat;
 
 	void Start ()
 	{
+		playerStatus = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
 		UpdateBones();
 	}
 
@@ -24,6 +27,6 @@ public class HUDMeatController : MonoBehaviour
 
 	void UpdateMeat ()
 	{
-		
+
 	}
 }

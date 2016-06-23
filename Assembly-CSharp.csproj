@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Actor\ActorAnimator.cs" />
      <Compile Include="Assets\Scripts\Actor\ActorAttack.cs" />
      <Compile Include="Assets\Scripts\Actor\ActorMovement.cs" />
+     <Compile Include="Assets\Scripts\Actor\ActorStatus.cs" />
      <Compile Include="Assets\Scripts\Actor\Enemy\Enemy.cs" />
      <Compile Include="Assets\Scripts\Actor\Enemy\ShrubMovement.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerAnimator.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets\Scripts\Actor\Player\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerInventory.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Actor\Player\PlayerStatus.cs" />
      <Compile Include="Assets\Scripts\Game\CameraController.cs" />
      <Compile Include="Assets\Scripts\Game\HUD\HUDMeat.cs" />
      <Compile Include="Assets\Scripts\Game\HUD\HUDMeatController.cs" />
