@@ -14,6 +14,11 @@ public class HUDMeatController : MonoBehaviour
 		UpdateBones();
 	}
 
+	void Update ()
+	{
+		UpdateMeat();
+	}
+
 	void UpdateBones ()
 	{
 		for (int i = 1; i < hudMeat.Length; i++)
@@ -27,6 +32,6 @@ public class HUDMeatController : MonoBehaviour
 
 	void UpdateMeat ()
 	{
-
+		print(playerStatus.Health);
 	}
 }

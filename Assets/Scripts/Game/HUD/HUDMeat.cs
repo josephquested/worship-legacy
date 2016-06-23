@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,5 +28,10 @@ public class HUDMeat : MonoBehaviour
 
 	void UpdateSprite () {
 		spriteRenderer.sprite = sprites[plump];
+	}
+
+	public int Plump {
+		get { return plump; }
+		set { plump = value; }
 	}
 }
