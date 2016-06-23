@@ -32,6 +32,20 @@ public class HUDMeatController : MonoBehaviour
 
 	void UpdateMeat ()
 	{
-		print(playerStatus.Health);
+		int health = playerStatus.Health;
+
+		for (int i = 0; i < hudMeat.Length; i++)
+		{
+			hudMeat[i].Plump = 0;
+
+			for (int j = 0; j < 3; j++)
+			{	
+				if (health > 0)
+				{
+					hudMeat[i].Plump++;
+					health--;
+				}
+			}
+		}
 	}
 }
