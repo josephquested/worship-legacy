@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
 
 	[SerializeField] private Sprite[] sprites;
 	[SerializeField] private int damage;
+	[SerializeField] private int knockback;
 
 	void Start ()
 	{
@@ -18,9 +19,19 @@ public class Weapon : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D collider)
 	{
+		Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 		if (collider.tag == "Enemy")
 		{
-			collider.GetComponent<Enemy>().Die();
+			Vector2 fromVector2 = collider.transform.position;
+			Vector2 toVector2 = GameObject.FindGameObjectWithTag("Player").transform.position;
+			Vector2 dir = (fromVector2 - toVector2).normalized;
+			dir = dir.normalized;
+			float x = Mathf.Round(dir.x);
+			float y = Mathf.Round(dir.y);
+			Vector2 direction = new Vector2(x, y);
+			collider.gameObject.GetComponent<Rigidbody2D>().velocity = direction * knockback;
+			// works with transform.translate, but when trying to use rigid body, it is broken
+			// because every time they move, their transform is being zeroed.
 		}
 	}
 

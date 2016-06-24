@@ -50,7 +50,7 @@
      <Compile Include="Assets\Scripts\Actor\ActorAttack.cs" />
      <Compile Include="Assets\Scripts\Actor\ActorMovement.cs" />
      <Compile Include="Assets\Scripts\Actor\ActorStatus.cs" />
-     <Compile Include="Assets\Scripts\Actor\Enemy\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Actor\Enemy\EnemyStatus.cs" />
      <Compile Include="Assets\Scripts\Actor\Enemy\ShrubMovement.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerAnimator.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerAttack.cs" />
