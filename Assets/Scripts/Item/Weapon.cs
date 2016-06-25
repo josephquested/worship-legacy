@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
 	private Collider2D attackCollider;
 	private SpriteRenderer spriteRenderer;
+	private Transform parentTransform;
 
 	[SerializeField] private Sprite[] sprites;
 	[SerializeField] private int damage;
@@ -15,6 +16,7 @@ public class Weapon : MonoBehaviour
 	{
 		attackCollider = this.GetComponent<Collider2D>();
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
+		parentTransform = transform.parent.transform;
 	}
 
 	void OnTriggerEnter2D (Collider2D collider)
@@ -22,17 +24,15 @@ public class Weapon : MonoBehaviour
 		Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 		if (collider.tag == "Enemy")
 		{
-			Vector2 fromVector2 = collider.transform.position;
-			Vector2 toVector2 = GameObject.FindGameObjectWithTag("Player").transform.position;
-			Vector2 dir = (fromVector2 - toVector2).normalized;
-			dir = dir.normalized;
-			float x = Mathf.Round(dir.x);
-			float y = Mathf.Round(dir.y);
-			Vector2 direction = new Vector2(x, y);
-			collider.gameObject.GetComponent<Rigidbody2D>().velocity = direction * knockback;
-			// works with transform.translate, but when trying to use rigid body, it is broken
-			// because every time they move, their transform is being zeroed.
+			Knockback(collider);
 		}
+	}
+
+	void Knockback (Collider2D collider)
+	{
+		Vector2 diff = (collider.transform.position - parentTransform.position).normalized;
+		Vector2 direction = new Vector2(Mathf.Round(diff.x), Mathf.Round(diff.y));
+		collider.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * knockback);
 	}
 
 	public void AttackInDirection (int direction)

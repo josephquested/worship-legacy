@@ -26,7 +26,6 @@ public class ActorMovement : MonoBehaviour
 		if (newDirection == 5 || !canMove)
 		{
 			moving = false;
-			StopMove();
 		}
 		else
 		{
@@ -39,12 +38,7 @@ public class ActorMovement : MonoBehaviour
 	void Move (int direction)
 	{
 		Vector2 movement = GetMovementVector(direction);
-		rb.velocity = movement * speed;
-	}
-
-	void StopMove ()
-	{
-		rb.velocity = Vector2.zero;
+		rb.AddForce(movement * speed);
 	}
 
 	int GetDirectionInt (float horizontal, float vertical)

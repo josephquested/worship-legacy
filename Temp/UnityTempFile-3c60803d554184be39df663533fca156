@@ -105,5 +105,6 @@
 'Assets/Scripts/Game/Screen.cs'
 'Assets/Scripts/Game/ScreenController.cs'
 'Assets/Scripts/Item/Weapon.cs'
+'Assets/Scripts/Player/PlayerCollider.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'
