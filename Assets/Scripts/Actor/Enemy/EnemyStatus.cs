@@ -26,9 +26,25 @@ public class EnemyStatus : ActorStatus
 
 	public override void Die ()
 	{
-		spriteRenderer.enabled = false;
-		actorCollider.enabled = false;
+		StartCoroutine(DeathCoroutine(1.5f));
+	}
+
+	IEnumerator DeathCoroutine (float duration)
+	{
+		actorMovement.CanMove = false;
 		enemyAttack.PassiveAttack = false;
+
+		for (float i = 0; i < duration; i++)
+		{
+			spriteRenderer.color = Color.red;
+			yield return new WaitForSeconds(0.1f);
+			spriteRenderer.color = Color.black;
+			yield return new WaitForSeconds(0.1f);
+			spriteRenderer.color = Color.white;
+		}
+
+		actorCollider.enabled = false;
+		spriteRenderer.enabled = false;
 	}
 
 	public virtual void Activate ()
