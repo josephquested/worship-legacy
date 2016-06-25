@@ -52,7 +52,8 @@
      <Compile Include="Assets\Scripts\Actor\ActorStatus.cs" />
      <Compile Include="Assets\Scripts\Actor\Enemy\EnemyAttack.cs" />
      <Compile Include="Assets\Scripts\Actor\Enemy\EnemyStatus.cs" />
-     <Compile Include="Assets\Scripts\Actor\Enemy\ShrubMovement.cs" />
+     <Compile Include="Assets\Scripts\Actor\Enemy\Shrub\ShrubMovement.cs" />
+     <Compile Include="Assets\Scripts\Actor\Enemy\Shrub\ShrubStatus.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerAnimator.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerAttack.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerCollider.cs" />

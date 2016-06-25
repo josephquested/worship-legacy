@@ -7,27 +7,22 @@ public class Weapon : MonoBehaviour
 	private Collider2D attackCollider;
 	private SpriteRenderer spriteRenderer;
 	private Transform parentTransform;
-	[SerializeField] private bool playerOwned;
 
 	[SerializeField] private Sprite[] sprites;
 	[SerializeField] private int damage;
 	[SerializeField] private int knockback;
+	[SerializeField] private bool canDamageEnemies;
 
 	void Start ()
 	{
 		attackCollider = this.GetComponent<Collider2D>();
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		parentTransform = transform.parent.transform;
-
-		if (parentTransform.gameObject.tag == "Player")
-		{
-			playerOwned = true;
-		}
 	}
 
 	void OnTriggerEnter2D (Collider2D collider)
 	{
-		if (collider.tag == "Enemy" && !playerOwned) return;
+		if (collider.tag == "Enemy" && !canDamageEnemies) return;
 		if (collider.tag == "Enemy" || collider.tag == "Player")
 		{
 			ActorStatus status = collider.gameObject.GetComponent<ActorStatus>();

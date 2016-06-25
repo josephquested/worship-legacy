@@ -31,7 +31,7 @@ public class EnemyStatus : ActorStatus
 		enemyAttack.PassiveAttack = false;
 	}
 
-	void Activate ()
+	public virtual void Activate ()
 	{
 		actorMovement.CanMove = true;
 	}
