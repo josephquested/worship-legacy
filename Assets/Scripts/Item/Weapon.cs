@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
 		parentTransform = transform.parent.transform;
 	}
 
-	void OnTriggerEnter2D (Collider2D collider)
+	void OnTriggerStay2D (Collider2D collider)
 	{
 		if (collider.tag == "Enemy" && !canDamageEnemies) return;
 		if (collider.tag == "Enemy" || collider.tag == "Player")

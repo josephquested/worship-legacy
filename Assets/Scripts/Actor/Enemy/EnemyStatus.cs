@@ -38,6 +38,7 @@ public class EnemyStatus : ActorStatus
 
 	void Respawn ()
 	{
+		Health = BaseHealth;
 		spriteRenderer.enabled = true;
 		actorCollider.enabled = true;
 	}

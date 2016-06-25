@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ActorStatus : MonoBehaviour
 {
+	[SerializeField] private int baseHealth;
 	[SerializeField] private int health;
 	[SerializeField] private bool invulnerable;
+	[SerializeField] private float invulnerableDuration;
 
 	protected Collider2D actorCollider;
 	protected SpriteRenderer spriteRenderer;
@@ -24,6 +26,11 @@ public class ActorStatus : MonoBehaviour
 		set { health = value; }
 	}
 
+	public int BaseHealth
+	{
+		get { return baseHealth; }
+	}
+
 	public bool Invulnerable
 	{
 		get { return invulnerable; }
@@ -32,7 +39,9 @@ public class ActorStatus : MonoBehaviour
 
 	public void Damage (int damage)
 	{
+		if (invulnerable) return;
 		health -= damage;
+		StartCoroutine(InvulnerableCoroutine(invulnerableDuration));
 
 		if (health <= 0)
 		{
@@ -49,5 +58,18 @@ public class ActorStatus : MonoBehaviour
 	public void DieForever ()
 	{
 		Destroy(gameObject);
+	}
+
+	IEnumerator InvulnerableCoroutine (float duration)
+	{
+		for (float i = 0; i < duration; i++)
+		{
+			Invulnerable = true;
+			spriteRenderer.color = Color.red;
+			yield return new WaitForSeconds(0.1f);
+			spriteRenderer.color = Color.white;
+			yield return new WaitForSeconds(0.1f);
+		}
+		Invulnerable = false;
 	}
 }
