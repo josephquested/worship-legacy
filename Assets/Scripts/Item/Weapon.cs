@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
 	private Collider2D attackCollider;
 	private SpriteRenderer spriteRenderer;
 	private Transform parentTransform;
+	[SerializeField] private bool playerOwned;
 
 	[SerializeField] private Sprite[] sprites;
 	[SerializeField] private int damage;
@@ -17,14 +18,24 @@ public class Weapon : MonoBehaviour
 		attackCollider = this.GetComponent<Collider2D>();
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		parentTransform = transform.parent.transform;
+
+		if (parentTransform.gameObject.tag == "Player")
+		{
+			playerOwned = true;
+		}
 	}
 
 	void OnTriggerEnter2D (Collider2D collider)
 	{
-		Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-		if (collider.tag == "Enemy")
+		if (collider.tag == "Enemy" && !playerOwned) return;
+		if (collider.tag == "Enemy" || collider.tag == "Player")
 		{
-			Knockback(collider);
+			ActorStatus status = collider.gameObject.GetComponent<ActorStatus>();
+			if (!status.Invulnerable)
+			{
+				status.Damage(damage);
+				Knockback(collider);
+			}
 		}
 	}
 
@@ -40,6 +51,11 @@ public class Weapon : MonoBehaviour
 		SetDirection(direction);
 		attackCollider.enabled = true;
 		spriteRenderer.enabled = true;
+	}
+
+	public void PassiveAttack (bool value)
+	{
+		attackCollider.enabled = value;
 	}
 
 	public void StopAttack ()

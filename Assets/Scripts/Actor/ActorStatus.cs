@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActorStatus : MonoBehaviour
 {
 	[SerializeField] private int health;
+	[SerializeField] private bool invulnerable;
 
 	protected Collider2D actorCollider;
 	protected SpriteRenderer spriteRenderer;
@@ -23,6 +24,12 @@ public class ActorStatus : MonoBehaviour
 		set { health = value; }
 	}
 
+	public bool Invulnerable
+	{
+		get { return invulnerable; }
+		set { invulnerable = value; }
+	}
+
 	public void Damage (int damage)
 	{
 		health -= damage;
@@ -33,7 +40,7 @@ public class ActorStatus : MonoBehaviour
 		}
 	}
 
-	public void Die ()
+	public virtual void Die ()
 	{
 		spriteRenderer.enabled = false;
 		actorCollider.enabled = false;

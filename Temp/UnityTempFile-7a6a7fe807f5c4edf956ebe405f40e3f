@@ -90,6 +90,7 @@
 'Assets/Scripts/Actor/ActorAttack.cs'
 'Assets/Scripts/Actor/ActorMovement.cs'
 'Assets/Scripts/Actor/ActorStatus.cs'
+'Assets/Scripts/Actor/Enemy/EnemyAttack.cs'
 'Assets/Scripts/Actor/Enemy/EnemyStatus.cs'
 'Assets/Scripts/Actor/Enemy/ShrubMovement.cs'
 'Assets/Scripts/Actor/Player/PlayerAnimator.cs'

@@ -8,7 +8,8 @@ public class ActorAttack : MonoBehaviour
 
 	[SerializeField] private bool attacking;
 	[SerializeField] private float attackSpeed;
-	[SerializeField] private Weapon weapon;
+	
+	public Weapon weapon;
 
 	void Start ()
 	{

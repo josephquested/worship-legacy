@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyStatus : ActorStatus
 {
+	private EnemyAttack enemyAttack;
 	private Vector2 spawnLocation;
 	private int spawnDirection;
 
 	void Start ()
 	{
+		enemyAttack = this.GetComponent<EnemyAttack>();
 		spawnLocation = transform.position;
 		spawnDirection = actorMovement.Direction;
 	}
@@ -18,7 +20,15 @@ public class EnemyStatus : ActorStatus
 		actorMovement.CanMove = false;
 		actorMovement.Direction = spawnDirection;
 		transform.position = spawnLocation;
+		enemyAttack.PassiveAttack = true;
 		Respawn();
+	}
+
+	public override void Die ()
+	{
+		spriteRenderer.enabled = false;
+		actorCollider.enabled = false;
+		enemyAttack.PassiveAttack = false;
 	}
 
 	void Activate ()
