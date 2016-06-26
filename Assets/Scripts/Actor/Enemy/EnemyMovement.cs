@@ -42,7 +42,7 @@ public class EnemyMovement : ActorMovement
 
 	void OnTriggerEnter2D (Collider2D collider)
 	{
-		if (collider.tag == "Screen" && collider.gameObject != transform.parent)
+		if (collider.tag == "GameScreen" && collider.gameObject != transform.parent)
 		{
 			transform.position = previousPosition;
 		}

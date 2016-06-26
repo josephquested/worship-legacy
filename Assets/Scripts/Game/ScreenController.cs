@@ -4,32 +4,32 @@ using UnityEngine;
 public class ScreenController : MonoBehaviour
 {
 	private CameraController cameraController;
-	private Screen activeScreen;
+	private GameScreen activeGameScreen;
 
 	void Start ()
 	{
 		cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
 	}
 
-	public void SetScreenState (Screen screen)
+	public void SetGameScreenState (GameScreen screen)
 	{
-		if (screen == activeScreen && !cameraController.Transitioning)
+		if (screen == activeGameScreen && !cameraController.Transitioning)
 		{
-			screen.ActivateScreen();
+			screen.ActivateGameScreen();
 		}
-		else if (screen != activeScreen && !cameraController.Transitioning)
+		else if (screen != activeGameScreen && !cameraController.Transitioning)
 		{
-			screen.ResetScreen();
+			screen.ResetGameScreen();
 		}
 	}
 
-	public Screen ActiveScreen
+	public GameScreen ActiveGameScreen
 	{
-		get { return activeScreen; }
+		get { return activeGameScreen; }
 		set
 		{
-			activeScreen = value;
-			cameraController.SetScreen(activeScreen.gameObject.transform);
+			activeGameScreen = value;
+			cameraController.SetGameScreen(activeGameScreen.gameObject.transform);
 		}
 	}
 }

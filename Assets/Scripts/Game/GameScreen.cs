@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Screen : MonoBehaviour
+public class GameScreen : MonoBehaviour
 {
 	private ScreenController screenController;
 	public bool screenActive = false;
@@ -14,25 +14,25 @@ public class Screen : MonoBehaviour
 
 	void Update ()
 	{
-		screenController.SetScreenState(this);
+		screenController.SetGameScreenState(this);
 	}
 
 	void OnTriggerStay2D (Collider2D collider)
 	{
 		if (collider.tag == "Player")
 		{
-			screenController.ActiveScreen = this;
+			screenController.ActiveGameScreen = this;
 		}
 	}
 
-	public void ResetScreen ()
+	public void ResetGameScreen ()
 	{
 		if (!screenActive) return;
 		screenActive = false;
 		BroadcastMessage("Reset", SendMessageOptions.DontRequireReceiver);
 	}
 
-	public void ActivateScreen ()
+	public void ActivateGameScreen ()
 	{
 		if (screenActive) return;
 		screenActive = true;

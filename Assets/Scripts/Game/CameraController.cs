@@ -4,10 +4,15 @@ using System.Collections;
 public class CameraController : MonoBehaviour
 {
 	private Transform screen;
-	[SerializeField] private bool transitioning;
+	private bool transitioning;
   private float lerpTime;
 
 	public float speed = 1.0F;
+
+	void Awake ()
+	{
+		Screen.SetResolution(800, 600, true);
+	}
 
 	public void Start ()
 	{
@@ -15,19 +20,19 @@ public class CameraController : MonoBehaviour
 		lerpTime = Time.time;
 	}
 
-	public void SetScreen (Transform newScreen)
+	public void SetGameScreen (Transform newGameScreen)
 	{
-		SetTransitioning(newScreen);
-		if (screen == newScreen) return;
-		screen = newScreen;
+		SetTransitioning(newGameScreen);
+		if (screen == newGameScreen) return;
+		screen = newGameScreen;
 		lerpTime = Time.time;
 	}
 
-	void SetTransitioning (Transform newScreen)
+	void SetTransitioning (Transform newGameScreen)
 	{
 		transitioning = !(
-			transform.position.x == newScreen.position.x
-			&& transform.position.y == newScreen.position.y
+			transform.position.x == newGameScreen.position.x
+			&& transform.position.y == newGameScreen.position.y
 		);
 	}
 
