@@ -12,35 +12,21 @@ public class ActorStatus : MonoBehaviour
 	protected Collider2D actorCollider;
 	protected SpriteRenderer spriteRenderer;
 	protected ActorMovement actorMovement;
+	protected ActorAudio actorAudio;
 
 	void Awake ()
 	{
 		actorMovement = this.GetComponent<ActorMovement>();
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		actorCollider = this.GetComponent<Collider2D>();
-	}
-
-	public int Health
-	{
-		get { return health; }
-		set { health = value; }
-	}
-
-	public int BaseHealth
-	{
-		get { return baseHealth; }
-	}
-
-	public bool Invulnerable
-	{
-		get { return invulnerable; }
-		set { invulnerable = value; }
+		actorAudio = this.GetComponent<ActorAudio>();
 	}
 
 	public void Damage (int damage)
 	{
 		if (invulnerable) return;
 		health -= damage;
+		actorAudio.Hurt();
 		StartCoroutine(InvulnerableCoroutine(invulnerableDuration));
 
 		if (health <= 0)
@@ -71,5 +57,22 @@ public class ActorStatus : MonoBehaviour
 			yield return new WaitForSeconds(0.1f);
 		}
 		Invulnerable = false;
+	}
+
+	public int Health
+	{
+		get { return health; }
+		set { health = value; }
+	}
+
+	public int BaseHealth
+	{
+		get { return baseHealth; }
+	}
+
+	public bool Invulnerable
+	{
+		get { return invulnerable; }
+		set { invulnerable = value; }
 	}
 }

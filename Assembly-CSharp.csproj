@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Actor\ActorAnimator.cs" />
      <Compile Include="Assets\Scripts\Actor\ActorAttack.cs" />
+     <Compile Include="Assets\Scripts\Actor\ActorAudio.cs" />
      <Compile Include="Assets\Scripts\Actor\ActorMovement.cs" />
      <Compile Include="Assets\Scripts\Actor\ActorStatus.cs" />
      <Compile Include="Assets\Scripts\Actor\Enemy\EnemyAttack.cs" />
