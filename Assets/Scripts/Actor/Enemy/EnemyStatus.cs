@@ -24,6 +24,18 @@ public class EnemyStatus : ActorStatus
 		Respawn();
 	}
 
+	public virtual void Activate ()
+	{
+		actorMovement.CanMove = true;
+	}
+
+	void Respawn ()
+	{
+		Health = BaseHealth;
+		spriteRenderer.enabled = true;
+		actorCollider.enabled = true;
+	}
+
 	public override void Die ()
 	{
 		StartCoroutine(DeathCoroutine(1.5f));
@@ -45,17 +57,5 @@ public class EnemyStatus : ActorStatus
 
 		actorCollider.enabled = false;
 		spriteRenderer.enabled = false;
-	}
-
-	public virtual void Activate ()
-	{
-		actorMovement.CanMove = true;
-	}
-
-	void Respawn ()
-	{
-		Health = BaseHealth;
-		spriteRenderer.enabled = true;
-		actorCollider.enabled = true;
 	}
 }

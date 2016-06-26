@@ -44,7 +44,6 @@ public class EnemyMovement : ActorMovement
 	{
 		if (collider.tag == "Screen" && collider.gameObject != transform.parent)
 		{
-			print("I'm leaving!");
 			transform.position = previousPosition;
 		}
 	}
