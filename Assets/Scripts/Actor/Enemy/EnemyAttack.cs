@@ -5,13 +5,22 @@ using UnityEngine;
 public class EnemyAttack : ActorAttack
 {
 	[SerializeField] private bool passiveAttack;
+	[SerializeField] private Weapon passiveWeapon;
+
+	void Update ()
+	{
+		if (Input.GetKeyDown("o"))
+		{
+			RecieveAttackInput(true);
+		}
+	}
 
 	public bool PassiveAttack
 	{
 		get { return passiveAttack; }
 		set
 		{
-			weapon.PassiveAttack(value);
+			passiveWeapon.PassiveAttack(value);
 			passiveAttack = value;
 		}
 	}
