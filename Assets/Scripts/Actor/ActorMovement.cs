@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActorMovement : MonoBehaviour
 {
-	private Rigidbody2D rb;
+	protected Rigidbody2D rb;
 	private bool moving;
 
 	[SerializeField] private bool canMove;

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ShrubStatus : EnemyStatus
 {
-	private ShrubMovement shrubMovement;
+	private EnemyMovement enemyMovement;
 
 	public override void Activate ()
 	{
-		shrubMovement = this.GetComponent<ShrubMovement>();
+		enemyMovement = this.GetComponent<EnemyMovement>();
 	}
 
 	void OnTriggerEnter2D (Collider2D collider)
 	{
 		if (collider.tag == "Player" || collider.tag == "Weapon")
 		{
-			shrubMovement.CanMove = true;
+			enemyMovement.CanMove = true;
 		}
 	}
 }

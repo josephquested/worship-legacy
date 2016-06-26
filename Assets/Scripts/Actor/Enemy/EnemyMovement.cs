@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShrubMovement : ActorMovement
+public class EnemyMovement : ActorMovement
 {
 	private bool movementCoroutine;
 
+	[SerializeField] private Vector2 previousPosition;
 	[SerializeField] private float minMovement;
 	[SerializeField] private float maxMovement;
 
+	void Start ()
+	{
+		rb = this.GetComponent<Rigidbody2D>();
+		previousPosition = transform.position;
+	}
+
 	void Update ()
 	{
+		previousPosition = transform.position;
 		if (!movementCoroutine)
 		{
 			movementCoroutine = true;
@@ -30,5 +38,14 @@ public class ShrubMovement : ActorMovement
 		}
 
 		movementCoroutine = false;
+	}
+
+	void OnTriggerEnter2D (Collider2D collider)
+	{
+		if (collider.tag == "Screen" && collider.gameObject != transform.parent)
+		{
+			print("I'm leaving!");
+			transform.position = previousPosition;
+		}
 	}
 }
