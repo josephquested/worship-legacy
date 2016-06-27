@@ -64,9 +64,11 @@
      <Compile Include="Assets\Scripts\Actor\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Actor\Player\PlayerStatus.cs" />
      <Compile Include="Assets\Scripts\Game\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Game\Fading.cs" />
      <Compile Include="Assets\Scripts\Game\GameScreen.cs" />
      <Compile Include="Assets\Scripts\Game\HUD\HUDMeat.cs" />
      <Compile Include="Assets\Scripts\Game\HUD\HUDMeatController.cs" />
+     <Compile Include="Assets\Scripts\Game\SceneChange.cs" />
      <Compile Include="Assets\Scripts\Game\ScreenController.cs" />
      <Compile Include="Assets\Scripts\Item\Weapon.cs" />
  <Reference Include="UnityEngine.UI">

@@ -16,6 +16,7 @@ public class ActorStatus : MonoBehaviour
 
 	void Awake ()
 	{
+		DontDestroyOnLoad(transform.gameObject);
 		actorMovement = this.GetComponent<ActorMovement>();
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		actorCollider = this.GetComponent<Collider2D>();

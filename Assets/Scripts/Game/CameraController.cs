@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
-	private Transform screen;
+	public Transform screen;
 	private bool transitioning;
   private float lerpTime;
 
@@ -11,7 +11,8 @@ public class CameraController : MonoBehaviour
 
 	void Awake ()
 	{
-		Screen.SetResolution(800, 600, true);
+		DontDestroyOnLoad(gameObject);
+		Screen.SetResolution(800, 600, false);
 	}
 
 	public void Start ()
@@ -38,6 +39,7 @@ public class CameraController : MonoBehaviour
 
 	void Update ()
 	{
+		if (screen == null) return;
 		Vector3 target = new Vector3(screen.position.x, screen.position.y, -10f);
     float distanceLerped = (Time.time - lerpTime) * speed;
 		float journeyLength = Vector3.Distance(transform.position, target);
