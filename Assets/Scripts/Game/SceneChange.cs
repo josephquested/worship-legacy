@@ -22,6 +22,6 @@ public class SceneChange : MonoBehaviour
 		yield return new WaitForSeconds(fadeTime);
 		SceneManager.LoadScene(scene);
 		collider.transform.position = spawnLocation;
-		GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(0, 0, -10);
+		GameObject.FindGameObjectWithTag("MainCamera").transform.position = spawnLocation;
 	}
 }
