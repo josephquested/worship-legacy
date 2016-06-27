@@ -9,6 +9,7 @@ public class EnemyAttack : ActorAttack
 
 	void Update ()
 	{
+
 		if (Input.GetKeyDown("o"))
 		{
 			RecieveAttackInput(true);
