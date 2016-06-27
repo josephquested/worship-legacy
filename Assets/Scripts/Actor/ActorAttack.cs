@@ -44,12 +44,17 @@ public class ActorAttack : MonoBehaviour
 
 		attacking = false;
 		actorMovement.CanMove = true;
-		weapon.StopAttack();
+		StopAttack();
 	}
 
 	void Attack ()
 	{
 		weapon.AttackInDirection(actorMovement.Direction);
+	}
+
+	public void StopAttack ()
+	{
+		weapon.StopAttack();
 	}
 
 	public bool Attacking

@@ -55,6 +55,7 @@ public class Weapon : MonoBehaviour
 
 	public void StopAttack ()
 	{
+		print("stop attack!");
 		attackCollider.enabled = false;
 		spriteRenderer.enabled = false;
 	}

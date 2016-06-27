@@ -5,16 +5,9 @@ using UnityEngine;
 public class EnemyAttack : ActorAttack
 {
 	[SerializeField] private bool passiveAttack;
+	[SerializeField] private bool triggerAttack;
 	[SerializeField] private Weapon passiveWeapon;
-
-	void Update ()
-	{
-
-		if (Input.GetKeyDown("o"))
-		{
-			RecieveAttackInput(true);
-		}
-	}
+	[SerializeField] private EnemyTrigger enemyTrigger;
 
 	public bool PassiveAttack
 	{
@@ -23,6 +16,19 @@ public class EnemyAttack : ActorAttack
 		{
 			passiveWeapon.PassiveAttack(value);
 			passiveAttack = value;
+		}
+	}
+
+	public bool TriggerAttack
+	{
+		get { return triggerAttack; }
+		set
+		{
+			if (enemyTrigger != null)
+			{
+				enemyTrigger.TriggerActive = value;
+				triggerAttack = value;
+			}
 		}
 	}
 }

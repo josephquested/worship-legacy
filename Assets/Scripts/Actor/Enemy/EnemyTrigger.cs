@@ -8,6 +8,7 @@ public class EnemyTrigger : MonoBehaviour
 	private ActorMovement actorMovement;
 
 	[SerializeField] float triggerDelay;
+	[SerializeField] bool triggerActive;
 
 	void Start ()
 	{
@@ -31,7 +32,11 @@ public class EnemyTrigger : MonoBehaviour
 	IEnumerator TriggerCoroutine ()
 	{
 		yield return new WaitForSeconds(triggerDelay);
-		enemyAttack.RecieveAttackInput(true);
+
+		if (triggerActive)
+		{
+			enemyAttack.RecieveAttackInput(true);
+		}
 	}
 
 	void SetDirection (int direction)
@@ -40,5 +45,10 @@ public class EnemyTrigger : MonoBehaviour
 		if (direction == 1) transform.localPosition = new Vector2(1, 0);
 		if (direction == 2) transform.localPosition = new Vector2(0, -1);
 		if (direction == 3) transform.localPosition = new Vector2(-1, 0);
+	}
+
+	public bool TriggerActive {
+		get { return triggerActive; }
+		set { triggerActive = value; }
 	}
 }

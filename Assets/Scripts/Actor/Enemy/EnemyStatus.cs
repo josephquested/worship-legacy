@@ -21,6 +21,7 @@ public class EnemyStatus : ActorStatus
 		actorMovement.Direction = spawnDirection;
 		transform.position = spawnLocation;
 		enemyAttack.PassiveAttack = true;
+		enemyAttack.TriggerAttack = true;
 		Respawn();
 	}
 
@@ -45,6 +46,8 @@ public class EnemyStatus : ActorStatus
 	{
 		actorMovement.CanMove = false;
 		enemyAttack.PassiveAttack = false;
+		enemyAttack.TriggerAttack = false;
+		enemyAttack.StopAttack();
 
 		for (float i = 0; i < duration; i++)
 		{
